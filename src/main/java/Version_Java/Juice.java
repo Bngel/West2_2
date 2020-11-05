@@ -1,3 +1,5 @@
+package Version_Java;
+
 import java.time.LocalDate;
 
 public class Juice extends Drinks{
@@ -7,7 +9,7 @@ public class Juice extends Drinks{
 
     @Override
     public String toString() {
-        return "Beer{" +
+        return "Version_Java.Beer{" +
                 "name='" + name + '\'' +
                 ", cost=" + cost +
                 ", date=" + date +

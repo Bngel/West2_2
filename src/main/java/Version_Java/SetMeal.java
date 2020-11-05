@@ -1,3 +1,5 @@
+package Version_Java;
+
 public class SetMeal {
     private String name;
     private double price;
@@ -21,7 +23,7 @@ public class SetMeal {
 
     @Override
     public String toString() {
-        return "SetMeal{" +
+        return "Version_Java.SetMeal{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", chicken='" + chicken + '\'' +

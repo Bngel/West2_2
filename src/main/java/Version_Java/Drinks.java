@@ -1,3 +1,5 @@
+package Version_Java;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
@@ -22,7 +24,7 @@ public abstract class Drinks {
 
     @Override
     public String toString() {
-        return "Drinks{" +
+        return "Version_Java.Drinks{" +
                 "name='" + name + '\'' +
                 ", cost=" + cost +
                 ", date=" + date +

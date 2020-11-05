@@ -1,3 +1,5 @@
+package Version_Java;
+
 public class IngredientSortOutException extends RuntimeException {
 
     private Drinks drink;

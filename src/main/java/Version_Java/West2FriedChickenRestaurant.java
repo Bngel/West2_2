@@ -1,3 +1,5 @@
+package Version_Java;
+
 import java.time.LocalDate;
 import java.util.LinkedList;
 
@@ -90,10 +92,10 @@ public class West2FriedChickenRestaurant implements FriedChickenRestaurant{
 
     public static void main(String[] args) {
         West2FriedChickenRestaurant west = new West2FriedChickenRestaurant();
-        // 初始化中无 Drinks
+        // 初始化中无 Version_Java.Drinks
         LinkedList<Drinks> initDrinks = new LinkedList<Drinks>();
-        initDrinks.add(new Beer("Snow",4.0,
-                LocalDate.of(2020,11,1),10));
+        initDrinks.add(new Juice("Snow",4.0,
+                LocalDate.of(2020,11,1)));
         initDrinks.add(new Beer("Sun",4.0,
                 LocalDate.of(2020,10,1),10));
         initDrinks.add(new Beer("Rain",4.0,

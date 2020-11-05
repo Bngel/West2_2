@@ -1,3 +1,5 @@
+package Version_Java;
+
 import java.util.LinkedList;
 
 public interface FriedChickenRestaurant {
