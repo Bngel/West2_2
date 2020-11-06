@@ -18,7 +18,7 @@ public class Beer extends Drinks{
                 ", cost=" + cost +
                 ", date=" + date +
                 ", expiration=" + expiration +
-                "alcohol=" + alcohol +
+                ", alcohol=" + alcohol +
                 '}';
     }
 

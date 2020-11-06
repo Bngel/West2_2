@@ -33,6 +33,12 @@ public class West2FriedChickenRestaurant implements FriedChickenRestaurant{
 
     private void use (Beer beer) {
         boolean success = false;
+        LinkedList<Beer> dellist = new LinkedList<>();
+        for (Beer value : beers) {
+            if (value.isOverDate(LocalDate.now()))
+                dellist.add(value);
+        }
+        beers.removeAll(dellist);
         for (int i=0;i<beers.size();i++)
             if (beers.get(i).equals(beer)) {
                 beers.remove(i);
@@ -44,6 +50,12 @@ public class West2FriedChickenRestaurant implements FriedChickenRestaurant{
 
     private void use (Juice juice) {
         boolean success = false;
+        LinkedList<Juice> dellist = new LinkedList<>();
+        for (Juice value : juices) {
+            if (value.isOverDate(LocalDate.now()))
+                dellist.add(value);
+        }
+        juices.removeAll(dellist);
         for (int i=0;i<juices.size();i++)
             if (juices.get(i).equals(juice)) {
                 juices.remove(i);
@@ -72,6 +84,10 @@ public class West2FriedChickenRestaurant implements FriedChickenRestaurant{
     public void GetGoods(LinkedList<Drinks> drinks) {
         try {
             for (Drinks drink : drinks){
+                if (amount < drink.cost)
+                    throw new OverdraftBalanceException(amount);
+                else
+                    amount -= drink.cost;
                 if (drink instanceof Beer) {
                     beers.add((Beer) drink);
                     System.out.printf("Get a %s%n",drink.name);
@@ -80,10 +96,6 @@ public class West2FriedChickenRestaurant implements FriedChickenRestaurant{
                     juices.add((Juice) drink);
                     System.out.printf("Get a %s%n",drink.name);
                 }
-                if (amount < drink.cost)
-                    throw new OverdraftBalanceException(amount);
-                else
-                    amount -= drink.cost;
             }
         } catch (OverdraftBalanceException e) {
             System.out.printf("Only %.2f yuan. Cannot afford.%n",e.getAmount());
@@ -97,9 +109,9 @@ public class West2FriedChickenRestaurant implements FriedChickenRestaurant{
         initDrinks.add(new Juice("Snow",4.0,
                 LocalDate.of(2020,11,1)));
         initDrinks.add(new Beer("Sun",4.0,
-                LocalDate.of(2020,10,1),10));
+                LocalDate.of(2020,11,6),10));
         initDrinks.add(new Beer("Rain",4.0,
-                LocalDate.of(2020,10,1),10));
+                LocalDate.of(2020,11,6),10));
         west.GetGoods(initDrinks);
         west.SellMeal(new SetMeal("GoodChicken",30.0,"BlackChicken",
                 new Beer("Rain",4.0,
